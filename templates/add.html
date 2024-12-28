@@ -1,0 +1,55 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}Add Movie{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1 class="heading">Add a Movie</h1>
+    <form action="{{url_for('add')}}" method="POST">
+      {{ wtf.quick_form(form) }}
+      <!-- <div class="mb-3">
+        <label for="title" class="form-label">Tiltle</label>
+        <input type="text" class="form-control" id="tiltle" aria-describedby="title" name="title">
+      </div>
+      <div class="mb-3">
+        <label for="year" class="form-label">Year</label>
+        <input type="number" class="form-control" id="year" aria-describedby="year" name="year">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="Rating" class="form-label">Rating</label>
+        <input type="number" min="1" max="10" class="form-control" id="Rating" aria-describedby="Rating", name="rating">
+      </div>
+      <div class="mb-3">
+        <label for="ranking" class="form-label">Ranking</label>
+        <input type="number" min="1" max="10" class="form-control" id="ranking" aria-describedby="ranking", name="ranking">
+      </div>
+
+      <div class="mb-3">
+        <label for="review" class="form-label">Review</label>
+        <textarea class="form-control" id="review" rows="3" name="review"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Image link</label>
+        <input class="form-control" type="text" id="image" name="image">
+      </div>
+      
+        <button type="submit" class="btn btn-primary">Submit</button>
+       -->
+
+       
+    </form>
+</div>
+{% endblock %}
