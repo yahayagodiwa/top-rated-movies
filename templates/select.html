@@ -7,15 +7,25 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
-
 {% block title %}Select Movie{% endblock %}
 
 {% block content %}
+
 <div class="container">
-    <h1 class="heading">Select Movie</h1>
-  <p>
-    <a href="#"> MOVIE TITLE - MOVIE RELEASE DATE</a>
-  </p>
+  <h1 class="heading">Select Movie</h1>
+  {% if data | length == 0 %}
+  <h3 style="color: red;">No result found</h3>
+{% else %}
+  <ul>
+    {% for movie in data %}
+      <li>
+        <a href="{{ url_for('select', id=movie['id']) }}"> {{ movie['original_title'] }} - {{ movie['release_date'] }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
 
 </div>
+
 {% endblock %}
